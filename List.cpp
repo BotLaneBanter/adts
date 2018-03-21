@@ -16,6 +16,12 @@ class List::Node //self-referential Node class
 	};//end Node class definition (can only be seen by the List class)
 
 
+List::List(){
+	
+	frontPtr = nullptr;
+	num_elements = 0;
+}
+
 List::~List()
 {
     while(num_elements > 0)
@@ -90,6 +96,31 @@ void List::remove(int k)
 	delete delPtr;
 	num_elements--;
 	}
+	
+	Node* List::get(int k){
+		
+		Node* myPtr = frontPtr;
+		
+		if(k == 1){
+			
+			return frontPtr;
+			
+		}
+		
+		else{
+			
+			for(int loc = 1; loc!=k; loc++){
+				
+				myPtr = myPtr -> link;
+				
+			}
+			
+			return myPtr;
+			
+		}
+	}
+	
+	
 	
 	//Implementations of missing operations
 	
