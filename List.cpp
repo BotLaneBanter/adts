@@ -49,17 +49,17 @@ void List::insert(int val, int k)
 	else
 	 {  
 	
-	  Node* tmpPtr = frontPtr;
+	  Node* prevPtr = frontPtr;
 	  int loc = 1; 
 	  
 	    while( loc != k-1) //get pointer to (k-1)th node
 	     {
-		tmpPtr = tmpPtr->link;
+		prevPtr = prevPtr->link;
 		loc++;
 	     }
 	
-	  newPtr->link = tmpPtr->link;
-	  tmpPtr->link = newPtr;  
+	  newPtr->link = prevPtr->link;
+	  prevPtr->link = newPtr;  
         }//end else
 
      num_elements++;
@@ -79,25 +79,25 @@ void List::remove(int k)
 	 }
 	 else
 	 {
-	    Node* tmpPtr = frontPtr;
+	    Node* prevPtr = frontPtr;
 		
 	    int loc = 1;
             
             while(loc != k-1)//get pointer to (k-1)th node
 	    {
-	       tmpPtr = tmpPtr->link;
+	       prevPtr = prevPtr->link;
 		loc++;
 	    }
 	
-	    delPtr = tmpPtr->link;
-	    tmpPtr->link = delPtr->link;
+	    delPtr = prevPtr->link;
+	    prevPtr->link = delPtr->link;
 	  }
 	
 	delete delPtr;
 	num_elements--;
 	}
 	
-	Node* List::get(int k){
+	/**Node* List::get(int k){
 		
 		Node* myPtr = frontPtr;
 		
@@ -118,7 +118,7 @@ void List::remove(int k)
 			return myPtr;
 			
 		}
-	}
+	}*/
 	
 	
 	
